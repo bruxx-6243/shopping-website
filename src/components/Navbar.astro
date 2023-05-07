@@ -1,0 +1,64 @@
+---
+import { Icon } from "astro-icon";
+
+interface NProps {
+  title: string;
+  path: string;
+}
+
+const navlinks: NProps[] = [
+  {
+    title: "Catalogue",
+    path: "catalogue",
+  },
+  {
+    title: "Fashion",
+    path: "ashion",
+  },
+  {
+    title: "Favorite",
+    path: "favorite",
+  },
+  {
+    title: "Lifestyle",
+    path: "lifestyle",
+  },
+  {
+    title: "Sign up",
+    path: "signup",
+  },
+];
+---
+
+<header class="py-4">
+  <nav class="container mx-auto px-4 text-[#242323]">
+    <div class="flex justify-between items-center gap-6">
+      <a href="/" class="w-[100px] md:w-[243px]">
+        <Icon name="logoshop" />
+      </a>
+      <ul class="hidden gap-2 md:gap-9 items-center md:flex">
+        {
+          navlinks.map((link, index) => (
+            <li
+              class={`uppercase text-[16px] lg:text-xl 
+                ${
+                  index === navlinks.length - 1 &&
+                  "text-white bg-black px-4 py-2 rounded-[7px]"
+                }`}
+            >
+              <a
+                class={
+                  index !== navlinks.length - 1 &&
+                  "hover:text-gray-400 transition-colors duration-200"
+                }
+                href={link.path}
+              >
+                {link.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
+</header>

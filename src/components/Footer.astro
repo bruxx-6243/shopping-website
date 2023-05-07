@@ -1,0 +1,85 @@
+---
+import { Icon } from "astro-icon";
+import { footerLinks } from "../data/footerLinks";
+
+interface SProps {
+  href: string;
+  icon: string;
+}
+
+const sociaLinks: SProps[] = [
+  {
+    href: "",
+    icon: "ri:facebook-fill",
+  },
+  {
+    href: "",
+    icon: "ri:instagram-line",
+  },
+  {
+    href: "",
+    icon: "ri:twitter-fill",
+  },
+  {
+    href: "",
+    icon: "ri:linkedin-fill",
+  },
+];
+---
+
+<footer class="w-full bg-black text-white py-[100px]">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center flex-wrap gap-6">
+      <div class="flex flex-col gap-[32px]">
+        <h2 class="text-[40px] leading-[60px] font-extrabold">
+          <a href="/">FASHION</a>
+        </h2>
+        <p class="text-sm text-[#8E8E8E]">
+          Complete your style with awesome <br class="hidden md:block" /> clothes
+          from us.
+        </p>
+        <ul class="flex items-center gap-2">
+          {
+            sociaLinks.map((link) => (
+              <li class="px-2 py-1 bg-[#EBD96B] text-black rounded hover:bg-[#ebda6bec] transition duration-150">
+                <a href={link.href}>
+                  <Icon name={link.icon} width={21} height={21} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="flex flex-wrap gap-x-36 gap-y-6">
+        {
+          footerLinks.map((item) => (
+            <div>
+              <h3 class="text-xl text-[#D9D9D9] mb-2 md:mb-6">{item.name}</h3>
+              <ul class="flex flex-col gap-y-2">
+                {item.links.map((link) => (
+                  <li class=" text-[#7A7A7A] text-base">
+                    <a
+                      class="hover:text-[#d9d9d9ea] transition-colors duration-200"
+                      href={link.href}
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="w-full border-t border-[#7A7A7A] mt-16 md:mt-20"></div>
+    <div class="flex justify-between mt-2">
+      <p class="text-sm text-[#7A7A7A]">
+        &copy; {new Date().getFullYear().toString()} All rights reserved.
+      </p>
+      <p class="text-sm text-[#7A7A7A]">BRUXX DEV</p>
+    </div>
+  </div>
+</footer>

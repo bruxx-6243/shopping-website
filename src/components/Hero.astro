@@ -1,0 +1,72 @@
+---
+import { Image } from "@astrojs/image/components";
+---
+
+<section>
+  <div class="container mx-auto px-4">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-y-7 w-full bg-[#F4F6F5] rounded-[50px] px-4 md:px-[81px] pt-[68px] overflow-hidden"
+    >
+      <div class="hero-content relative">
+        <h1 class="text-4xl md:text-6xl font-extrabold z-10 tracking-widest">
+          LET’S <br /> EXPLORE <br class="hidden md:block" /> UNIQUE <br
+            class="hidden md:block"
+          /> CLOTHES.
+        </h1>
+
+        <p class="text-[#191818] my-4">
+          Live for Influential and Innovative fashion!
+        </p>
+
+        <button
+          class="text-[16px] lg:text-xl text-white bg-black px-4 py-2 rounded-[7px]"
+          type="button">Shop Now</button
+        >
+      </div>
+      <div class="hero-img w-full">
+        <Image
+          src="/images/girlhero.png"
+          alt="Girl"
+          width={871}
+          height={784}
+          format="webp"
+          class="pointer-events-none"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .hero-content {
+    -webkit-animation: slide-left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .hero-img {
+    -webkit-animation: slide-up 2s 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-up 2s 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes slide-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
