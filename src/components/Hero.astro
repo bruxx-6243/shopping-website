@@ -1,16 +1,19 @@
 ---
 import { Image } from "@astrojs/image/components";
+import Button from "./Button.astro";
 
-const className = "text-4xl md:text-6xl font-extrabold";
+const className = "text-4xl lg:text-6xl font-[900]";
 const borderRadius = "100% 0% 100% 0% / 100% 0% 100% 0% ";
 ---
 
 <section>
   <div class="container mx-auto px-4">
     <div
-      class="bg-[#F4F6F5] grid grid-cols-1 md:grid-cols-2 gap-y-7 rounded-[50px] px-4 md:px-[81px] pt-[68px] overflow-hidden"
+      class="bg-[#F4F6F5] grid grid-cols-1 md:grid-cols-2 gap-y-7 rounded-[50px] px-4 md:px-[81px] pt-[50px] lg:pt-[68px] overflow-hidden"
     >
-      <div class="relative z-10 flex flex-col gap-y-2 hero-content">
+      <div
+        class="relative z-10 flex flex-col gap-y-2 hero-content py-6 lg:py-0"
+      >
         <div class="relative">
           <h1 class={`${className} z-10`}>LET’S</h1>
           <div
@@ -39,10 +42,7 @@ const borderRadius = "100% 0% 100% 0% / 100% 0% 100% 0% ";
         <div class="flex gap-x-4 items-center">
           <div style={{ borderRadius }} class="bg-[#EBD96B] w-24 h-5 rotate-6">
           </div>
-          <button
-            class="text-[16px] lg:text-xl text-white bg-black px-4 py-2 rounded-[7px] max-w-[221px]"
-            type="button">Shop Now</button
-          >
+          <Button title="Shop Now" />
         </div>
       </div>
       <div class="hero-img w-full flex-1">

@@ -1,0 +1,13 @@
+---
+interface BProps {
+  title: string;
+}
+
+const { title } = Astro.props as BProps;
+---
+
+<button
+  class="text-[16px] lg:text-xl text-white bg-black px-4 py-2 rounded-[7px] max-w-[221px]"
+  type="button"
+  >{title}
+</button>

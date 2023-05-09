@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props as Props;
+const borderRadius = "100% 0% 100% 0% / 100% 0% 100% 0% ";
+---
+
+<div class="relative inline-block mb-24">
+  <h2 class="font-[900] text-[30px] leading-[50px] tracking-wider text-black">
+    {title}
+  </h2>
+  <div
+    style={{ borderRadius }}
+    class="absolute top-6 right-0 bg-[#EBD96B] w-2/5 h-8 rotate-6 -z-[1]"
+  >
+  </div>
+</div>

@@ -38,20 +38,20 @@ const logos = [
   <div class="container mx-auto px-4 py-6">
     <div class="flex">
       <div
-        class="marqueen__container w-full flex items-center justify-center md:justify-between flex-wrap gap-x-6"
+        class="w-full flex flex-wrap items-center justify-center md:justify-between gap-x-6"
       >
         {
           logos.map((logo) => (
             <Image
               src={logo.image}
-              alt={logo.image
+              alt={`${logo.image
                 .toString()
-                .toLowerCase()
-                .replace(/\/|\.png|images/g, "")}
+                .replace(/\/|\.png|images/g, "")
+                .toUpperCase()} Logo`}
               width={logo.width}
               height={logo.height}
               format="webp"
-              class="pointer-events-none mix-blend-multiply shrink-0"
+              class="pointer-events-none mix-blend-multiply shrink-0 w-[100px]"
             />
           ))
         }
@@ -60,18 +60,8 @@ const logos = [
   </div>
 </section>
 
-<!-- 
 <style>
-  .marqueen__container {
-    animation: scrolling 18s linear infinite;
+  .marquee__container::-webkit-scrollbar {
+    display: none;
   }
-
-  @keyframes scrolling {
-    0% {
-      transform: translateX(80vw);
-    }
-    100% {
-      transform: translateX(-180vw);
-    }
-  }
-</style> -->
+</style>

@@ -30,10 +30,10 @@ const navlinks: NProps[] = [
 ];
 ---
 
-<header class="py-4">
+<header class="py-4 bg-red-white mb-4">
   <nav class="container mx-auto px-4 text-[#242323]">
     <div class="flex justify-between items-center gap-6">
-      <a href="/" class="w-[100px] md:w-[243px]">
+      <a href="/" class="w-[150px] md:w-[243px]">
         <Icon name="logoshop" />
       </a>
       <ul class="hidden gap-2 md:gap-9 items-center md:flex">
@@ -59,6 +59,112 @@ const navlinks: NProps[] = [
           ))
         }
       </ul>
+      <button
+        data-toggle
+        class="relative w-[40px] h-[30px] cursor-pointer md:hidden"
+      >
+        <span
+          class="block absolute h-[4px] w-full bg-black rounded-[9px] opacity-100 left-0 top-0"
+        ></span>
+        <span
+          class="block absolute h-[4px] w-full bg-black rounded-[9px] opacity-100 left-0 top-[13px]"
+        ></span>
+        <span
+          class="block absolute h-[4px] w-full bg-black rounded-[9px] opacity-100 left-0 top-[26px]"
+        ></span>
+      </button>
     </div>
+
+    <!-- Mobile navigation -->
+    <ul
+      data-navMenu
+      class="hidden items-center flex-col gap-y-6 gap-2 pt-4 md:hidden"
+    >
+      {
+        navlinks.map((link, index) => (
+          <li
+            data-navLink
+            class={`uppercase text-2xl 
+              ${
+                index === navlinks.length - 1 &&
+                "text-white bg-black px-4 py-2 rounded-[7px] w-full text-center"
+              }`}
+          >
+            <a href={link.path}>{link.title}</a>
+          </li>
+        ))
+      }
+    </ul>
   </nav>
 </header>
+
+<style lang="scss">
+  button {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+
+    span {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+    }
+  }
+
+  button.open {
+    span:nth-child(1) {
+      top: 13px;
+      -webkit-transform: rotate(135deg);
+      -moz-transform: rotate(135deg);
+      -o-transform: rotate(135deg);
+      transform: rotate(135deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+      left: -60px;
+    }
+    span:nth-child(3) {
+      top: 10px;
+      -webkit-transform: rotate(-135deg);
+      -moz-transform: rotate(-135deg);
+      -o-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+    }
+  }
+
+  [data-navMenu] {
+    animation: appear 0.35s ease-in-out forwards;
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.querySelector("[data-toggle]");
+  const navMenu = document.querySelector("[data-navMenu]");
+
+  menuBtn.addEventListener("click", function () {
+    this.classList.toggle("open");
+    navMenu.classList.toggle("hidden");
+    navMenu.classList.toggle("flex");
+  });
+</script>
