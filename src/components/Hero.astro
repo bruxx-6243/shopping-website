@@ -1,33 +1,55 @@
 ---
 import { Image } from "@astrojs/image/components";
+
+const className = "text-4xl md:text-6xl font-extrabold";
+const borderRadius = "100% 0% 100% 0% / 100% 0% 100% 0% ";
 ---
 
 <section>
   <div class="container mx-auto px-4">
     <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-y-7 w-full bg-[#F4F6F5] rounded-[50px] px-4 md:px-[81px] pt-[68px] overflow-hidden"
+      class="bg-[#F4F6F5] grid grid-cols-1 md:grid-cols-2 gap-y-7 rounded-[50px] px-4 md:px-[81px] pt-[68px] overflow-hidden"
     >
-      <div class="hero-content relative">
-        <h1 class="text-4xl md:text-6xl font-extrabold z-10 tracking-widest">
-          LET’S <br /> EXPLORE <br class="hidden md:block" /> UNIQUE <br
-            class="hidden md:block"
-          /> CLOTHES.
-        </h1>
+      <div class="relative z-10 flex flex-col gap-y-2 hero-content">
+        <div class="relative">
+          <h1 class={`${className} z-10`}>LET’S</h1>
+          <div
+            class="absolute bg-white w-[53%] h-full top-[2px] -z-[1] -left-2 md:-left-6 -rotate-[2deg]"
+          >
+          </div>
+        </div>
+        <div>
+          <h1 class={className}>EXPLORE</h1>
+        </div>
+        <div class="relative">
+          <h1 class={className}>UNIQUE</h1>
+          <div
+            class="absolute bg-[#EBD96B] w-[70%] md:w-[60%] h-full top-[2px] -z-[1] -left-2 md:-left-6 -rotate-[2deg]"
+          >
+          </div>
+        </div>
+        <div>
+          <h1 class={className}>CLOTHES.</h1>
+        </div>
 
         <p class="text-[#191818] my-4">
           Live for Influential and Innovative fashion!
         </p>
 
-        <button
-          class="text-[16px] lg:text-xl text-white bg-black px-4 py-2 rounded-[7px]"
-          type="button">Shop Now</button
-        >
+        <div class="flex gap-x-4 items-center">
+          <div style={{ borderRadius }} class="bg-[#EBD96B] w-24 h-5 rotate-6">
+          </div>
+          <button
+            class="text-[16px] lg:text-xl text-white bg-black px-4 py-2 rounded-[7px] max-w-[221px]"
+            type="button">Shop Now</button
+          >
+        </div>
       </div>
-      <div class="hero-img w-full">
+      <div class="hero-img w-full flex-1">
         <Image
           src="/images/girlhero.png"
-          alt="Girl"
-          width={871}
+          alt="Shopping gril"
+          width={891}
           height={784}
           format="webp"
           class="pointer-events-none"

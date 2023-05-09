@@ -1,4 +1,8 @@
 ---
+// import styles
+import "../styles/global.css";
+
+// import component
 import Head from "../components/Head.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
@@ -8,12 +12,12 @@ interface Props {
   description: string;
 }
 
-const { title = "Fashion", description } = Astro.props as Props;
+const { title = "Fashion Website", description } = Astro.props as Props;
 ---
 
 <html lang="en">
   <Head {title} {description} />
-  <body class="bg-[#fff]">
+  <body>
     <Navbar />
     <main>
       <slot />
