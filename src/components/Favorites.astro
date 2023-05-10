@@ -1,0 +1,23 @@
+---
+import ProductCard from "./ProductCard.astro";
+import Title from "./Title.astro";
+
+import { favorites } from "../data/data";
+---
+
+<section class="mb-24">
+  <div class="container px-6 mx-auto">
+    <Title title="Young’s Favourite" />
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 place-items-center gap-6 md:gap-20"
+    >
+      {
+        favorites.map((item) => (
+          <a href={item.title}>
+            <ProductCard props={item} width={834} height={575} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

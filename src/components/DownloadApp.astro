@@ -1,0 +1,54 @@
+---
+import { Image } from "@astrojs/image/components";
+---
+
+<section class="mb-24">
+  <div class="container px-4 mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 place-items-center">
+      <div class="flex flex-col gap-y-10">
+        <h2
+          class="font-[900] text-[30px] leading-[52px] tracking-[0.06em] text-black text-center sm:text-left"
+        >
+          DOWNLOAD APP & <br /> GET THE VOUCHER!
+        </h2>
+        <p class="text-xl text-[#7C7C7C] text-center sm:text-left">
+          Get 30% off for first transaction using <br /> Rondovision mobile app for
+          now.
+        </p>
+        <div class="flex items-center justify-center sm:justify-start gap-x-4">
+          <a href="#">
+            <Image
+              src="/images/appstore.png"
+              alt="App store"
+              width={130}
+              height={45}
+              format="webp"
+              class="pointer-events-none rounded-lg"
+            />
+          </a>
+          <a href="#">
+            <Image
+              src="/images/playstore.png"
+              alt="Ply store"
+              width={130}
+              height={45}
+              format="webp"
+              class="pointer-events-none rounded-lg"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <Image
+          src="/images/6.png"
+          alt="App store"
+          width={471}
+          height={600}
+          format="webp"
+          class="pointer-events-none rounded-lg"
+        />
+      </div>
+    </div>
+  </div>
+</section>

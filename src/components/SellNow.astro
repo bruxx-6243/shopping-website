@@ -1,0 +1,69 @@
+---
+import { Image } from "@astrojs/image/components";
+import Button from "./Button.astro";
+---
+
+<section class="mb-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 place-items-center">
+    <Image
+      src="/images/sellnow.png"
+      alt="Shopping gril"
+      width={991.42}
+      height={968}
+      format="webp"
+      class="pointer-events-none h-full w-full"
+    />
+
+    <div class="flex flex-col px-4 md:px-[90px] py-6">
+      <div class="relative z-10">
+        <div class="relative inline-block">
+          <h2 class="text-4xl lg:text-6xl font-[900]">PAYDAY</h2>
+          <div
+            class="absolute bg-white w-[calc(100%+50px)] h-full top-[2px] -z-[1] -left-2 md:-left-6 -rotate-[2deg]"
+          >
+          </div>
+        </div>
+        <h2 class="text-4xl lg:text-6xl font-[900]">SALE NOW</h2>
+      </div>
+
+      <p class="text-base md:text-[24px] tracking-[-0.02em] my-6">
+        Spend minimal $100 get 30% off voucher code for your next purchase
+      </p>
+      <p class="text-base md:text-[24px] tracking-[-0.02em] mb-6">
+        <span class="font-medium">1 June - 10 June 2021</span>
+        <br />
+        *Terms & Conditions apply
+      </p>
+
+      <Button title="SHOP NOW" />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background: linear-gradient(
+      1.32deg,
+      #e0c340 0.13%,
+      #dfc23e 3.97%,
+      #e1c441 7.2%,
+      #e3c743 10.13%,
+      #e4c542 12.98%,
+      #e6c744 15.99%,
+      #e7c845 19.52%,
+      #e5c643 23.96%,
+      #e6c945 30.43%,
+      #e3c743 36.49%,
+      #e9ca48 42.49%,
+      #edce49 49.35%,
+      #f0d44c 55.42%,
+      #f4d84f 61.43%,
+      #f6da52 65.74%,
+      #f7db53 72.23%,
+      #f9dd55 77.43%,
+      #f9df56 83.84%,
+      #fae157 91.52%,
+      #f9df56 97.87%
+    );
+  }
+</style>
