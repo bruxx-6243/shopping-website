@@ -1,5 +1,7 @@
 ---
 import Title from "./Title.astro";
+import { newArrivals } from "../data/data";
+import ProductCard from "./ProductCard.astro";
 ---
 
 <section>
@@ -9,9 +11,13 @@ import Title from "./Title.astro";
     <div
       class="grid grid-cols-1 sm:grid-cols-3 place-items-center gap-6 md:gap-20 mb-24"
     >
-      <div class="border rounded p-6">1</div>
-      <div class="border rounded p-6">2</div>
-      <div class="border rounded p-6">3</div>
+      {
+        newArrivals.map((item) => (
+          <a href={item.title.toLowerCase()}>
+            <ProductCard props={item} width={484} height={704} />
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

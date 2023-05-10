@@ -1,0 +1,87 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="py-24 bg-[#E5C643]">
+  <div class="container px-4 mx-auto">
+    <div class="flex flex-col items-center justify-center">
+      <h2
+        class="font-[900] text-xl sm:text-[30px] sm:leading-[52px] text-white text-center"
+      >
+        JOIN SHOPPING COMMUNITY TO <br /> GET MONTHLY PROMO
+      </h2>
+      <p
+        class="text-base text-white text-center sm:text-left sm:leading-[35px] tracking-[0.03em] my-6"
+      >
+        Type your email down below and be young wild generation
+      </p>
+      <div>
+        <form
+          data-form
+          class="flex justify-between gap-x-2 bg-white p-2 rounded-lg"
+        >
+          <input
+            class="outline-none px-4 py-2 bg-inherit"
+            type="email"
+            name="email"
+            placeholder="Add your email here"
+          />
+          <button
+            data-btn-send
+            type="submit"
+            class="text-base lg:text-lg text-white bg-black px-4 py-2 rounded-[7px]"
+          >
+            SEND
+          </button>
+        </form>
+        <p data-error class="text-sm text-red-700 italic transition-all"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector("[data-form]") as HTMLFormElement;
+  const error = document.querySelector("[data-error]") as HTMLParagraphElement;
+  const btnSend = form.querySelector("[data-btn-send]") as HTMLButtonElement;
+
+  const checkEmail = (email: string): boolean => {
+    const regExp = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+    return email.match(regExp) ? true : false;
+  };
+
+  const onSuccess = () => {
+    btnSend.classList.add("bg-green-700");
+    error.innerHTML = "";
+    btnSend.innerHTML = `<img src="/images/loader.svg" alt="loader" />`;
+  };
+
+  const resetForm = () => {
+    btnSend.classList.remove("bg-green-700");
+    btnSend.innerText = "SEND";
+    form.reset();
+  };
+
+  const receipt = () => (btnSend.innerText = "SENT");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const value = e.target[0].value;
+
+    if (!checkEmail(value)) {
+      error.innerHTML = "Please enter a valid email*";
+      return;
+    }
+
+    onSuccess();
+
+    setTimeout(() => {
+      setTimeout(() => {
+        resetForm();
+      }, 2000);
+
+      receipt();
+    }, 5000);
+  });
+</script>
