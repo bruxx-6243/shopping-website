@@ -1,7 +1,3 @@
----
-import Button from "./Button.astro";
----
-
 <section class="py-24 bg-[#E5C643]">
   <div class="container px-4 mx-auto">
     <div class="flex flex-col items-center justify-center">
@@ -15,13 +11,13 @@ import Button from "./Button.astro";
       >
         Type your email down below and be young wild generation
       </p>
-      <div class="relative">
+      <div>
         <form
           data-form
           class="flex justify-between gap-x-2 bg-white p-2 rounded-lg"
         >
           <input
-            class="outline-none px-4 py-2 bg-inherit"
+            class="outline-none px-4 py-2 bg-inherit border-b-2 border-transparent transition-all duration-300"
             type="email"
             name="email"
             placeholder="Add your email here"
@@ -34,20 +30,15 @@ import Button from "./Button.astro";
             SEND
           </button>
         </form>
-        <p
-          data-error
-          class="absolute -bottom-6 text-sm text-red-700 italic transition-all"
-        >
-        </p>
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  const form = document.querySelector("[data-form]") as HTMLFormElement;
-  const error = document.querySelector("[data-error]") as HTMLParagraphElement;
-  const btnSend = form.querySelector("[data-btn-send]") as HTMLButtonElement;
+  const form = document.querySelector<HTMLFormElement>("[data-form]");
+  const btnSend = form.querySelector<HTMLButtonElement>("[data-btn-send]");
+  const input = document.querySelector<HTMLInputElement>("input");
 
   const checkEmail = (email: string): boolean => {
     const regExp = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
@@ -55,8 +46,10 @@ import Button from "./Button.astro";
   };
 
   const onSuccess = () => {
+    input.classList.remove("border-red-500");
+    input.classList.add("border-transparent");
+
     btnSend.classList.add("bg-green-700");
-    error.innerHTML = "";
     btnSend.innerHTML = `<img src="/images/loader.svg" alt="loader" />`;
   };
 
@@ -71,10 +64,12 @@ import Button from "./Button.astro";
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const value = e.target[0].value;
+    const value: string = e.target[0].value;
 
     if (!checkEmail(value)) {
-      error.innerHTML = "Please enter a valid email*";
+      input.classList.remove("border-transparent");
+      input.classList.add("border-red-500");
+      input.focus();
       return;
     }
 
